@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+	<framedef name="safetybox">
+		<bitmap file="graphics/frames/utilitybox.png" />
+		<offset>22,22,22,22</offset>
+		<insideoffset>0,0,10,10</insideoffset>
+	</framedef>
+</root>
