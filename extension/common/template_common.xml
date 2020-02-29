@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<template name="safetyCard">
+		<buttoncontrol>
+			<anchored width="40" height="65" />
+			<pressed offset="1,1" />
+			<invisible />
+			<script>
+				function onButtonPress()
+					if User.isHost() then
+						SafetyToolkit.cardAck(getName())
+					else
+						SafetyToolkit.cardSubmit(getName())					
+					end
+				end
+				function onInit()
+					sName = getName();
+					local num = SafetyToolkit.checkUnack(sName)
+					if num > 0 or not User.isHost() then 
+						setVisible(true);
+					end
+					setIcons(sName, sName);
+				end
+			</script>
+		</buttoncontrol>
+	</template>
+</root>

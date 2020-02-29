@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<windowclass name="SafetyToolkitWindow">
+		<frame>utilitybox</frame>
+		<placement>
+			<size width="170" height="110" />
+		</placement>
+		<sizelimits>
+			<minimum width="170" height="110" />
+		</sizelimits>
+		<sheetdata>
+<!-- 			<windowtitlebar name="title">
+				<resource>safetyToolkit_title</resource>
+			</windowtitlebar>
+			<anchor_title_utilitybox name="contentanchor" />
+			<resize_utilitybox />
+-->			<anchor_column name="contentanchor" />
+			
+			<close_utilitybox />
+			<safetyCard name="card_x">
+				<anchored>
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<left offset="20" />
+				</anchored>
+			</safetyCard>
+			<safetyCard name="card_n">
+				<anchored>
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<left offset="65" />
+				</anchored>
+			</safetyCard>
+			<safetyCard name="card_o">
+				<anchored>
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<left offset="110" />
+				</anchored>
+			</safetyCard>
+		</sheetdata>
+	</windowclass>	
+</root>

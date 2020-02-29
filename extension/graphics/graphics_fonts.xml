@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<font name="safetytoolkitfont">
+		<ttf file="graphics/fonts/Open_Sans/OpenSans-Bold.ttf" name="Open Sans Bold" size="20" />
+		<color value="#660011" />
+	</font>
+</root>
+	
+	
