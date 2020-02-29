@@ -2,7 +2,7 @@
 
 <root>
 	<windowclass name="SafetyToolkitWindow">
-		<frame>utilitybox</frame>
+		<frame>safetybox</frame>
 		<placement>
 			<size width="170" height="110" />
 		</placement>

@@ -13,6 +13,7 @@
 		<includefile source="strings/strings_safetytk.xml" />
 		<includefile source="graphics/graphics_icons.xml" />
 		<includefile source="graphics/graphics_fonts.xml" />
+		<includefile source="graphics/graphics_frames.xml" />
 		<includefile source="common/template_common.xml" />
 		<script name="SafetyToolkit" file="scripts/manager_safetytk.lua" /> 
 	</base>
