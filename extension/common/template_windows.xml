@@ -10,13 +10,7 @@
 			<minimum width="170" height="110" />
 		</sizelimits>
 		<sheetdata>
-<!-- 			<windowtitlebar name="title">
-				<resource>safetyToolkit_title</resource>
-			</windowtitlebar>
-			<anchor_title_utilitybox name="contentanchor" />
-			<resize_utilitybox />
--->			<anchor_column name="contentanchor" />
-			
+			<anchor_column name="contentanchor" />
 			<close_utilitybox />
 			<safetyCard name="card_x">
 				<anchored>
