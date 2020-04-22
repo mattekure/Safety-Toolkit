@@ -4,38 +4,206 @@
 	<windowclass name="SafetyToolkitWindow">
 		<frame>safetybox</frame>
 		<placement>
-			<size width="170" height="110" />
+			<size width="170" height="140" />
 		</placement>
 		<sizelimits>
-			<minimum width="170" height="110" />
+			<minimum width="170" height="140" />
 		</sizelimits>
 		<sheetdata>
-<!-- 			<windowtitlebar name="title">
-				<resource>safetyToolkit_title</resource>
-			</windowtitlebar>
-			<anchor_title_utilitybox name="contentanchor" />
-			<resize_utilitybox />
--->			<anchor_column name="contentanchor" />
-			
+			<anchor_column name="contentanchor" />
 			<close_utilitybox />
 			<safetyCard name="card_x">
 				<anchored>
-					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="50" />
 					<left offset="20" />
 				</anchored>
 			</safetyCard>
 			<safetyCard name="card_n">
 				<anchored>
-					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="50" />
 					<left offset="65" />
 				</anchored>
 			</safetyCard>
 			<safetyCard name="card_o">
 				<anchored>
-					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="50" />
 					<left offset="110" />
 				</anchored>
 			</safetyCard>
 		</sheetdata>
 	</windowclass>	
+	
+	<windowclass name="triggersWindow">
+		<frame>safetybox</frame>
+		<placement>
+			<size width="300" height="150" />
+		</placement>
+		<sizelimits>
+			<dynamic />
+			<minimum width="300" height="150" />
+		</sizelimits>
+		<sheetdata>
+			<windowtitlebar name="title">
+				<resource>triggersSurvey</resource>
+			</windowtitlebar>
+			<anchor_title_utilitybox name="contentanchor" />
+			<resize_utilitybox />
+			<close_utilitybox />
+			<button_text name="defineTriggers">
+				<anchored height="20" width="100">
+					<left parent="contentanchor" anchor="left" offset="0" />
+					<top parent="contentanchor" anchor="bottom" offset="20" />
+				</anchored>
+				<state textres="defineTriggers_button_label" />
+				<tooltip textres="" />
+				<script>
+					function onButtonPress()
+						Interface.openWindow("topicsImportWindow", "");
+					end
+					function onInit()
+						if not User.isHost() then
+							setVisible(false);
+						end
+					end
+				</script>
+			</button_text>
+			<button_text name="viewSurvey">
+				<anchored height="20" width="100">
+					<left parent="contentanchor" anchor="left" offset="120" />
+					<top parent="contentanchor" anchor="bottom" offset="20" />
+				</anchored>
+				<state textres="viewSurvey_button_label" />
+				<tooltip textres="" />
+				<script>
+					function onButtonPress()
+						Interface.openWindow("surveyResultsWindow", "");
+					end
+					function onInit()
+						if not User.isHost() then
+							setVisible(false);
+						end
+					end
+				</script>
+			</button_text>
+			<button_text name="takeSurvey">
+				<anchored height="20" width="100">
+					<left parent="contentanchor" anchor="left" offset="0" />
+					<top parent="contentanchor" anchor="bottom" offset="20" />
+				</anchored>
+				<state textres="takeSurvey_button_label" />
+				<tooltip textres="" />
+				<script>
+					function onButtonPress()
+						window.close(false);
+					end
+					function onInit()
+						if User.isHost() then
+							setVisible(false);
+						end
+					end
+				</script>
+			</button_text>
+		</sheetdata>
+	</windowclass>
+	
+	<windowclass name="topicsImportWindow">
+		<frame>safetybox</frame>
+		<placement>
+			<size width="270" height="200" />
+		</placement>
+		<sizelimits>
+			<dynamic />
+			<minimum width="270" height="200" />
+		</sizelimits>
+		<sheetdata>
+			<windowtitlebar name="title">
+				<resource>defineTriggers_button_label</resource>
+			</windowtitlebar>
+			<anchor_title_utilitybox name="contentanchor" />
+			<resize_utilitybox />
+			<close_utilitybox />
+			<label_column name="topic_label">
+				<anchored height="30">
+					<left parent="contentanchor" anchor="left" offset="10" />
+					<right parent="contentanchor" anchor="right" offset="-10" />
+					<top parent="contentanchor" anchor="top" offset="10" />
+				</anchored>
+				<static textres="surveyTopics_label" />
+				<multilinespacing>14</multilinespacing>
+				<center />
+			</label_column>
+			<subwindow name="contents">
+				<anchored>
+					<top parent="contentanchor" anchor="bottom" relation="relative" offset="20" />
+					<bottom offset="-40" />
+					<left offset="0" />
+					<right offset="-15" />
+				</anchored>
+				<class>topic_import_contents</class>
+				<activate />
+				<fastinit />			
+			</subwindow>
+			<scrollbar>
+				<anchored to="contents" offset="-5,-10"/>
+				<target>contents</target>
+			</scrollbar>
+			<button_text name="submitTopics">
+				<anchored height="20">
+					<left parent="contentanchor" anchor="left" offset="10" />
+					<right parent="contentanchor" anchor="right" offset="-10" />
+					<top parent="contents" anchor="bottom" offset="0" />
+				</anchored>
+				<state textres="submitTopics_button_label" />
+				<tooltip textres="" />
+				<script>
+					function onButtonPress()
+						local str = window.contents.subwindow.topicsContent.getValue()
+						sTopics = SafetyToolkit.setTopics(str);
+						window.close(false);
+					end
+				</script>
+			</button_text>			
+		</sheetdata>
+	</windowclass>
+	
+	<windowclass name="topic_import_contents">
+        <margins control="15,15,15,15" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+            <stringu name="topicsContent">
+                <anchored>
+                    <top parent="columnanchor" anchor="bottom" relation="relative" offset="15" />
+                    <left offset="15" />
+                    <right offset="-10" />
+                </anchored>
+                <multilinespacing>20</multilinespacing>
+				<script>
+					function onInit()
+						setValue(SafetyToolkit.getTopics());
+					end
+				</script>
+            </stringu>
+        </sheetdata>
+	</windowclass>
+	
+	<windowclass name="surveyResultsWindow">
+		<frame>safetybox</frame>
+		<placement>
+			<size width="270" height="110" />
+		</placement>
+		<sizelimits>
+			<dynamic />
+			<minimum width="270" height="110" />
+		</sizelimits>
+		<sheetdata>
+			<windowtitlebar name="title">
+				<resource>surveyResults_label</resource>
+			</windowtitlebar>
+			<anchor_title_utilitybox name="contentanchor" />
+			<resize_utilitybox />
+			<close_utilitybox />
+		
+		</sheetdata>
+	</windowclass>
+
 </root>

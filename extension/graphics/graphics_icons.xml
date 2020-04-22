@@ -3,6 +3,8 @@
 <root>
 	<icon name="safety_toolkit" file="graphics/sidebar/safetyToolkit.png" />
 	<icon name="safety_toolkit_down" file="graphics/sidebar/safetyToolkit_down.png" />
+	<icon name="triggers" file="graphics/sidebar/triggers.png" />
+	<icon name="triggers_down" file="graphics/sidebar/triggers_down.png" />
 	<icon name="card_x" file="graphics/buttons/Card_X.png" />
 	<icon name="card_n" file="graphics/buttons/Card_N.png" />
 	<icon name="card_o" file="graphics/buttons/Card_O.png" />
