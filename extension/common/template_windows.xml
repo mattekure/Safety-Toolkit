@@ -4,29 +4,29 @@
 	<windowclass name="SafetyToolkitWindow">
 		<frame>safetybox</frame>
 		<placement>
-			<size width="170" height="110" />
+			<size width="170" height="140" />
 		</placement>
 		<sizelimits>
-			<minimum width="170" height="110" />
+			<minimum width="170" height="140" />
 		</sizelimits>
 		<sheetdata>
 			<anchor_column name="contentanchor" />
 			<close_utilitybox />
 			<safetyCard name="card_x">
 				<anchored>
-					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="50" />
 					<left offset="20" />
 				</anchored>
 			</safetyCard>
 			<safetyCard name="card_n">
 				<anchored>
-					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="50" />
 					<left offset="65" />
 				</anchored>
 			</safetyCard>
 			<safetyCard name="card_o">
 				<anchored>
-					<top parent="contentanchor" anchor="bottom" relation="current" offset="30" />
+					<top parent="contentanchor" anchor="bottom" relation="current" offset="50" />
 					<left offset="110" />
 				</anchored>
 			</safetyCard>

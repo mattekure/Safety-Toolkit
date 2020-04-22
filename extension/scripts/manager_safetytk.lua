@@ -23,19 +23,19 @@ OOB_MSGTYPE_SUBMITCARD = "submitcard";
 function onInit()
 	Interface.onDesktopInit = onDesktopInit;
 	OOBManager.registerOOBMsgHandler(OOB_MSGTYPE_SUBMITCARD, handleSubmitCard);
-	local nNode = DB.findNode("safetyTopics");
-	local mNode = "";
-	local lNode = "";
-	if nNode == nil then
-		nNode = DB.createNode("safetyTopics");
-		for _,v in pairs(topicList) do
-			local mNode = DB.createChild(nNode)
-			local lNode = mNode.createChild("name", "string");
-			lNode.setValue(v);
-			lNode = mNode.createChild("responseNum", "number");
-			lNode.setValue(0);
-		end		
-	end
+	-- local nNode = DB.findNode("safetyTopics");
+	-- local mNode = "";
+	-- local lNode = "";
+	-- if nNode == nil then
+		-- nNode = DB.createNode("safetyTopics");
+		-- for _,v in pairs(topicList) do
+			-- local mNode = DB.createChild(nNode)
+			-- local lNode = mNode.createChild("name", "string");
+			-- lNode.setValue(v);
+			-- lNode = mNode.createChild("responseNum", "number");
+			-- lNode.setValue(0);
+		-- end		
+	-- end
 		
 end
 
@@ -85,7 +85,7 @@ end
 function RegisterStackShortcut()
 	if DesktopManager ~= nil then
 		DesktopManager.registerStackShortcut2("safety_toolkit", "safety_toolkit_down", "safetyToolkit_tooltip", "SafetyToolkitWindow", "", true);
-		DesktopManager.registerStackShortcut2("triggers", "triggers_down", "triggersSurvey", "triggersWindow", "", true);
+		-- DesktopManager.registerStackShortcut2("triggers", "triggers_down", "triggersSurvey", "triggersWindow", "", true);
 
 	end
 end
@@ -125,8 +125,17 @@ end
 function handleSubmitCard(msgOOB)
 	local sCard = msgOOB.sCard;
 	local c = sCard:sub(-1);
-	unAck[c] = 1;
+	unAck[c] = unAck[c]+1;
 	local wWindow = Interface.openWindow("SafetyToolkitWindow", "");
 	wWindow.close();
 	Interface.openWindow("SafetyToolkitWindow", "");
+	if(c == 'o') then
+		local userList = User.getActiveUsers();
+		local numUsers = table.getn(userList);
+		
+		local messagedata = {};
+		messagedata.text  = "Safety Toolkit: "..string.upper(c).." card submitted by "..unAck[c].." of "..numUsers.." players connected.";
+		messagedata.font = "safetytoolkitfont";
+		Comm.deliverChatMessage(messagedata);
+	end
 end
