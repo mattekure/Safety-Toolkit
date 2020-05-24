@@ -17,25 +17,29 @@ local topicList = {
 	"Violence against animals",
 	"Violence against children"
 }
+local aCoreDesktopStack = {
+	["safetyToolkit"] = 
+	{
+		{
+			icon="safety_toolkit",
+			icon_down="safety_toolkit_down",
+			tooltipres="safetyToolkit_tooltip",
+			class="SafetyToolkitWindow",
+		}
+	}
+};
 
 OOB_MSGTYPE_SUBMITCARD = "submitcard";
 
 function onInit()
-	Interface.onDesktopInit = onDesktopInit;
+	if MenuManager then
+		MenuManager.addMenuItem("SafetyToolkitWindow", "", "safetyToolkit_tooltip", "Safety TK");
+	else
+		DesktopManager.registerStackShortcuts(aCoreDesktopStack["safetyToolkit"]);
+	end
+
 	OOBManager.registerOOBMsgHandler(OOB_MSGTYPE_SUBMITCARD, handleSubmitCard);
-	-- local nNode = DB.findNode("safetyTopics");
-	-- local mNode = "";
-	-- local lNode = "";
-	-- if nNode == nil then
-		-- nNode = DB.createNode("safetyTopics");
-		-- for _,v in pairs(topicList) do
-			-- local mNode = DB.createChild(nNode)
-			-- local lNode = mNode.createChild("name", "string");
-			-- lNode.setValue(v);
-			-- lNode = mNode.createChild("responseNum", "number");
-			-- lNode.setValue(0);
-		-- end		
-	-- end
+	
 		
 end
 
@@ -72,22 +76,6 @@ function setTopics(sTopics)
 		
 	end
 
-end
--- ---------------------------------------------------------------
--- OnDesktopInit - Called right after Desktop is fully loaded	--
--- ---------------------------------------------------------------
-function onDesktopInit()
-	RegisterStackShortcut();
-end
--- ---------------------------------------------------------------
--- RegisterStackShortcut - Registers a stack shortcut button	--
--- ---------------------------------------------------------------
-function RegisterStackShortcut()
-	if DesktopManager ~= nil then
-		DesktopManager.registerStackShortcut2("safety_toolkit", "safety_toolkit_down", "safetyToolkit_tooltip", "SafetyToolkitWindow", "", true);
-		-- DesktopManager.registerStackShortcut2("triggers", "triggers_down", "triggersSurvey", "triggersWindow", "", true);
-
-	end
 end
 
 function cardButtonPressed(sButton)
