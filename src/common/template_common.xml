@@ -8,7 +8,7 @@
 			<invisible />
 			<script>
 				function onButtonPress()
-					if User.isHost() then
+					if Session.IsHost then
 						SafetyToolkit.cardAck(getName())
 					else
 						SafetyToolkit.cardSubmit(getName())					
@@ -17,7 +17,7 @@
 				function onInit()
 					sName = getName();
 					local num = SafetyToolkit.checkUnack(sName)
-					if num > 0 or not User.isHost() then 
+					if num > 0 or Session.IsLocal then 
 						setVisible(true);
 					end
 					setIcons(sName, sName);

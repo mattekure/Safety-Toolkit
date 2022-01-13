@@ -2,19 +2,20 @@
 <root version="3.0">
 	<properties>
 		<name>TTRPG Safety Toolkit</name>
-		<version>1.1</version>
+		<version>1.5</version>
 		<loadorder>99</loadorder>
 		<author>Mattekure</author>
 		<description>TTRPG Safety Toolkit</description>
 	</properties>
-	<announcement text="TTRPG Safety Toolkit v1.1" font="chatfont" />
+	<announcement text="TTRPG Safety Toolkit v1.5" font="chatfont" />
 	<base>
 		<includefile source="common/template_windows.xml" />
+		<includefile source="campaign/record_consentChecklist.xml" />
 		<includefile source="strings/strings_safetytk.xml" />
 		<includefile source="graphics/graphics_icons.xml" />
 		<includefile source="graphics/graphics_fonts.xml" />
 		<includefile source="graphics/graphics_frames.xml" />
 		<includefile source="common/template_common.xml" />
-		<script name="SafetyToolkit" file="scripts/manager_safetytk.lua" /> 
+		<script name="SafetyToolkit" file="scripts/manager_safetytk.lua" />
 	</base>
 </root>

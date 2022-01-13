@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<string name="safetyToolkit_tooltip">Open Safety Toolkit</string>
+	<string name="safetyToolkit_title">Safety Toolkit</string>
+	<string name="triggersSurvey">Topic Survey</string>
+	<string name="defineTriggers_button_label">Define Topics</string>
+	<string name="viewSurvey_button_label">View Results</string>
+	<string name="takeSurvey_button_label">Take Survey</string>
+	<string name="surveyResults_label">Survey Results</string>
+	<string name="surveyTopics_label">Enter the topics to be included in the survey, one topic per line.</string>
+	<string name="submitTopics_button_label">Record Topics</string>
+	<string name="library_recordtype_label_consentchecklist">Consent Checklist</string>
+	<string name="check_blank">&#171; New Consent Checklist &#187;</string>
+<!-- 	Checklist strings -->
+	<string name="check_plannedTheme">Planned Game Theme:</string>
+	<string name="check_rating">If this game were a movie, its movie rating would be:</string>
+	<string name="check_g">G</string>
+	<string name="check_pg">PG</string>
+	<string name="check_pg13">PG-13</string>
+	<string name="check_r">R</string>
+	<string name="check_nc17">NC-17</string>
+	<string name="check_ratingOther">Other: </string>
+	<string name="check_instructions">Mark the color that best illustrates your comfort level with the following plot or story elements</string>
+	<string name="check_green">Green</string>
+	<string name="check_yellow">Yellow</string>
+	<string name="check_red">Red</string>
+	<string name="check_green_desc">= Enthusiastic consent; bring it on!</string>
+	<string name="check_yellow_desc">= Okay if veiled or offstage; might be okay onstage but requires discussion ahead of time; uncertain</string>
+	<string name="check_red_desc"></string>
+	<string name="Hard line; do not include"></string>
+	<string name="check_header_horror">HORROR</string>
+	<string name="check_horror_bugs">Bugs</string>
+	<string name="check_horror_blood">Blood</string>
+	<string name="check_horror_demons">Demons</string>
+	<string name="check_horror_eyeballs">Eyeballs</string>
+	<string name="check_horror_gore">Gore</string>
+	<string name="check_horror_animalHarm">Harm to animals</string>
+	<string name="check_horror_childHarm">Harm to children</string>
+	<string name="check_horror_rats">Rats</string>
+	<string name="check_horror_spiders">Spiders</string>
+	<string name="check_header_relationships">RELATIONSHIPS</string>
+	<string name="check_relationships_romance">Romance</string>
+	<string name="check_relationships_romancefade">Fade to black</string>
+	<string name="check_relationships_romanceexplicit">Explicit</string>
+	<string name="check_relationships_romancebetpcnpcs">Between PCs and NPCs </string>
+	<string name="check_relationships_romancebetpcs">Between PCs</string>
+	<string name="check_relationships_sex">Sex</string>
+	<string name="check_relationships_sexfadeblack">Fade to Black</string>
+	<string name="check_relationships_sexexplicit">Explicit</string>
+	<string name="check_relationships_sexbetpcnpcs">Between PCs and NPCs</string>
+	<string name="check_relationships_sexbetpcs">Between PCs </string>
+	<string name="check_header_social">SOCIAL AND CULTURAL ISSUES </string>
+	<string name="check_social_homo">Homophobia</string>
+	<string name="check_social_racism">Racism</string>
+	<string name="check_social_religion">Real-world religion</string>
+	<string name="check_social_sexism">Sexism</string>
+	<string name="check_social_cultural">Specific cultural issues</string>
+	<string name="check_header_health">MENTAL AND PHYSICAL HEALTH </string>
+	<string name="check_health_cancer">Cancer</string>
+	<string name="check_health_claus">Claustrophobia</string>
+	<string name="check_health_freeze">Freezing to death</string>
+	<string name="check_health_gas">Gaslighting</string>
+	<string name="check_health_geno">Genocide</string>
+	<string name="check_health_heat">Heatstroke</string>
+	<string name="check_health_disaster">Natural disasters (earthquakes, forest fires)</string>
+	<string name="check_health_para">Paralysis/physical restraint</string>
+	<string name="check_health_police">Police, police aggression</string>
+	<string name="check_health_preg">Pregnancy, miscarriage, or abortion</string>
+	<string name="check_health_selfharm">Self-harm</string>
+	<string name="check_health_weather">Severe weather (hurricanes, tornados) </string>
+	<string name="check_health_sexassault">Sexual assault</string>
+	<string name="check_health_starvation">Starvation</string>
+	<string name="check_health_terror">Terrorism</string>
+	<string name="check_health_torture">Torture</string>
+	<string name="check_health_thirst">Thirst</string>
+	<string name="check_followup">Do you want the GM to follow up with you to clarify any of these responses? If so, which ones?</string>
+</root>
