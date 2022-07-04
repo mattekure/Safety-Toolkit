@@ -7,18 +7,18 @@
     <Author>mattekure</Author>
     <Website />
     <Version>1</Version>
-    <Release>6</Release>
-    <RulesetWizardVersion>0.7.10</RulesetWizardVersion>
+    <Release>7</Release>
+    <RulesetWizardVersion>0.7.15</RulesetWizardVersion>
     <RulesetList />
     <LoadOrder />
     <Comments />
-    <Announcement>TTRPG Safety Toolkit v1.6</Announcement>
+    <Announcement>TTRPG Safety Toolkit v1.7</Announcement>
     <LogoFile />
     <ImportRuleset>CoreRPG</ImportRuleset>
     <AdvancedDevelopment>true</AdvancedDevelopment>
     <GeneratePath>C:\Users\John\Fantasy Grounds Unity\extensions\Safety Toolkit.ext</GeneratePath>
-    <AnnouncementFont />
-    <AnnouncementIcon />
+    <AnnouncementFont>emotefont</AnnouncementFont>
+    <AnnouncementIcon>Mattekure_Logo</AnnouncementIcon>
     <Announcement2 />
     <Announcement2Font />
     <Announcement2Icon />
@@ -27,6 +27,7 @@
     <Announcement3Icon />
     <ExcludeRSWScripts>false</ExcludeRSWScripts>
     <CompileToFolder>false</CompileToFolder>
+    <DefaultEncoding>iso-8859-1</DefaultEncoding>
   </RulesetProperties>
 </Ruleset>
 
@@ -103,12 +104,14 @@
       {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string","#text":"windows/scripts/SafetyButton.lua"}},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate"},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"55"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"10"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
+    <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>SafetyToolkitWindow</WindowName>
@@ -152,12 +155,14 @@
       {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string","#text":"windows/scripts/SafetyButton.lua"}},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate"},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"10"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
+    <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>SafetyToolkitWindow</WindowName>
@@ -201,12 +206,14 @@
       {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string","#text":"windows/scripts/SafetyButton.lua"}},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate"},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"10"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
+    <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>SafetyToolkitWindow</WindowName>
@@ -256,12 +263,14 @@
       {"Name":"Source"},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate"},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"55"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"70"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
+    <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>SafetyToolkitWindow</WindowName>
@@ -311,12 +320,14 @@
       {"Name":"Source"},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate"},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"70"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
+    <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>SafetyToolkitWindow</WindowName>
@@ -366,12 +377,14 @@
       {"Name":"Source"},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate"},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"70"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
+    <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>SafetyToolkitWindow</WindowName>
@@ -426,6 +439,7 @@
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
+    <Template />
   </WindowControls>
 </DocumentElement>
 
@@ -474,17 +488,17 @@ end</Script>
     o = {},
 };
 
-local tButton = 
-{
-    icon = "safety_toolkit",
-    icon_down = "safety_toolkit_down",
-    tooltipres = "safetyToolkit_tooltip",
-    class = "SafetyToolkitWindow",
-};
+
 
 OOB_MSGTYPE_SUBMITCARD = "submitcard";
 
 function onInit()
+local tButton = 
+{
+    sIcon = "icon-shield-echoes",
+    tooltipres = "sidebar_tooltip_safetytoolkit",
+    class = "SafetyToolkitWindow",
+};
     DesktopManager.registerSidebarStackButton(tButton, false);
     OOBManager.registerOOBMsgHandler(OOB_MSGTYPE_SUBMITCARD, handleSubmitCard);
 end
@@ -556,7 +570,18 @@ end</Script>
   </Scripts>
 </DocumentElement>
 
-<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd" />
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>strings</XmlName>
+    <FolderID>2</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;root&gt;
+ 	&lt;string name="sidebar_tooltip_safetytoolkit"&gt;TTRPG Safety Toolkit&lt;/string&gt;     
+               
+&lt;/root&gt;      
+    </XML>
+  </XMLFiles>
+</DocumentElement>
 
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd" />
 
@@ -577,14 +602,14 @@ end</Script>
     <IconFile>C:\Users\John\github\Safety-Toolkit\Card_X.png</IconFile>
   </Icons>
   <Icons>
-    <IconName>safety_toolkit</IconName>
+    <IconName>icon-shield-echoes</IconName>
     <FolderID>1</FolderID>
-    <IconFile>C:\Users\John\github\Safety-Toolkit\safetyToolkit.png</IconFile>
+    <IconFile>shield-echoes.png</IconFile>
   </Icons>
   <Icons>
-    <IconName>safety_toolkit_down</IconName>
+    <IconName>Mattekure_Logo</IconName>
     <FolderID>1</FolderID>
-    <IconFile>C:\Users\John\github\Safety-Toolkit\safetyToolkit_down.png</IconFile>
+    <IconFile>Mattekure_Logo.jpg</IconFile>
   </Icons>
 </DocumentElement>
 
