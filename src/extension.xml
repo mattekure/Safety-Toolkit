@@ -2,12 +2,12 @@
 <root version="3.0">
     <properties>
         <name>Feature: TTRPG Safety Toolkit</name>
-        <version>1.6</version>
+        <version>1.7</version>
         <author>Mattekure</author>
         <description>TTRPG Safety Toolkit</description>
     </properties>
     <announcement>
-        <text>TTRPG Safety Toolkit v1.6 \rCreated by mattekure</text>
+        <text>TTRPG Safety Toolkit v1.7 \rCreated by mattekure</text>
         <font>systemfont</font>
         <icon>Mattekure_Logo</icon>
     </announcement>
