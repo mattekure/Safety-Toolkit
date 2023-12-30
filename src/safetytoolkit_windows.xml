@@ -20,7 +20,7 @@
                 function onInit()
                     local sName = getName();
                     local num = SafetyToolkit.checkUnack(sName)
-                    if num > 0 or Session.IsLocal then
+                    if num > 0 or not Session.IsHost then
                         setVisible(true);
                     end
                     setIcons(sName, sName);

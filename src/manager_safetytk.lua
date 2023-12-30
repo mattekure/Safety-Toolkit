@@ -72,9 +72,9 @@ function handleSubmitCard(msgOOB)
     wWindow.close();
     Interface.openWindow("SafetyToolkitWindow", "");
     local userList = User.getActiveUsers();
-    local numUsers = table.getn(userList);
+    local numUsers = #userList;
     local messagedata = {};
-    messagedata.font = "safetytoolkitfont";
+    messagedata.font = "systemfont";
     if (sCard == 'o') then
         messagedata.text = "Safety Toolkit: " ..
             string.upper(sCard) .. " card submitted by " ..
