@@ -4,37 +4,19 @@ local unAck = {
     o = {},
 }
 
+local OOB_MSGTYPE_SUBMITCARD = "submitcard";
 
-local tButton = 
-{
+function onTabletopInit()
+    local tButton =
+    {
+        sIcon = "safety_toolkit",
+        tooltipres = "safetyToolkit_tooltip",
+        class = "SafetyToolkitWindow",
+    };
 
-    icon = "safety_toolkit",
-    icon_down = "safety_toolkit_down",
-    tooltipres = "safetyToolkit_tooltip",
-    class = "SafetyToolkitWindow",
-
-};
-
-local _aChecklistRecord = {
-    bNoCategories = true,
-    sEditMode = "play",
-    aDataMap = { "consentchecklist" },
-    aDisplayIcon = { "button_ConsentChecklist_up", "button_ConsentChecklist_down" },
-    bExport = 0,
-};
-
-
-
-OOB_MSGTYPE_SUBMITCARD = "submitcard";
-
-function onInit()
-    DesktopManager.registerSidebarStackButton(tButton, false);
-
-    -- LibraryData.setRecordTypeInfo("consentchecklist", _aChecklistRecord);
+    DesktopManager.registerSidebarToolButton(tButton, false);
 
     OOBManager.registerOOBMsgHandler(OOB_MSGTYPE_SUBMITCARD, handleSubmitCard);
-
-
 end
 
 function addToSet(set, key)
@@ -69,8 +51,8 @@ end
 function cardAck(sCard)
     unAck[sCard:sub(-1)] = {};
     local messagedata = {};
-    messagedata.text = "Safety Toolkit: "..string.upper(sCard:sub(-1)).." card acknowledged by the GM";
-    messagedata.font = "safetytoolkitfont";
+    messagedata.text = "Safety Toolkit: " .. string.upper(sCard:sub(-1)) .. " card acknowledged by the GM";
+    messagedata.font = "systemfont";
     Comm.deliverChatMessage(messagedata);
     local wWindow = Interface.openWindow("SafetyToolkitWindow", "");
     wWindow.close();
@@ -93,10 +75,12 @@ function handleSubmitCard(msgOOB)
     local numUsers = table.getn(userList);
     local messagedata = {};
     messagedata.font = "safetytoolkitfont";
-    if(sCard == 'o') then
-        messagedata.text = "Safety Toolkit: "..string.upper(sCard).." card submitted by ".. tablelength(unAck[sCard]).." of "..numUsers.." players connected.";
+    if (sCard == 'o') then
+        messagedata.text = "Safety Toolkit: " ..
+            string.upper(sCard) .. " card submitted by " ..
+            tablelength(unAck[sCard]) .. " of " .. numUsers .. " players connected.";
     else
-        messagedata.text = "Safety Toolkit: "..string.upper(sCard).." card submitted.";
+        messagedata.text = "Safety Toolkit: " .. string.upper(sCard) .. " card submitted.";
     end
     Comm.deliverChatMessage(messagedata, sUser);
 end

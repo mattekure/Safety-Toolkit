@@ -1,21 +1,25 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <root version="3.0">
-	<properties>
-		<name>TTRPG Safety Toolkit</name>
-		<version>1.5</version>
-		<loadorder>99</loadorder>
-		<author>Mattekure</author>
-		<description>TTRPG Safety Toolkit</description>
-	</properties>
-	<announcement text="TTRPG Safety Toolkit v1.5" font="chatfont" />
-	<base>
-		<includefile source="common/template_windows.xml" />
-		<includefile source="campaign/record_consentChecklist.xml" />
-		<includefile source="strings/strings_safetytk.xml" />
-		<includefile source="graphics/graphics_icons.xml" />
-		<includefile source="graphics/graphics_fonts.xml" />
-		<includefile source="graphics/graphics_frames.xml" />
-		<includefile source="common/template_common.xml" />
-		<script name="SafetyToolkit" file="scripts/manager_safetytk.lua" />
-	</base>
+    <properties>
+        <name>Feature: TTRPG Safety Toolkit</name>
+        <version>1.6</version>
+        <author>Mattekure</author>
+        <description>TTRPG Safety Toolkit</description>
+    </properties>
+    <announcement>
+        <text>TTRPG Safety Toolkit v1.6 \rCreated by mattekure</text>
+        <font>systemfont</font>
+        <icon>Mattekure_Logo</icon>
+    </announcement>
+
+    <base>
+        <includefile source="safetytoolkit_windows.xml" />
+        <includefile source="strings_safetytk.xml" />
+        <icon name="Mattekure_Logo" file="Mattekure_Logo.png" />
+        <icon name="safety_toolkit" file="graphics/shield-echoes.png" />
+        <icon name="card_x" file="graphics/Card_X.png" />
+        <icon name="card_n" file="graphics/Card_N.png" />
+        <icon name="card_o" file="graphics/Card_O.png" />
+        <script name="SafetyToolkit" file="manager_safetytk.lua" />
+    </base>
 </root>

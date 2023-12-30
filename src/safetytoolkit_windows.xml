@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <template name="safetyCard">
+        <buttoncontrol>
+            <invisible />
+            <anchored to="contentanchor" height="60" width="40">
+                <top relation="current" offset="0" />
+                <left anchor="center" />
+            </anchored>
+            <script>
+                function onButtonPress()
+                    if Session.IsHost then
+                        SafetyToolkit.cardAck(getName())
+                    else
+                        SafetyToolkit.cardSubmit(getName())
+                    end
+                end
+
+                function onInit()
+                    local sName = getName();
+                    local num = SafetyToolkit.checkUnack(sName)
+                    if num > 0 or Session.IsLocal then
+                        setVisible(true);
+                    end
+                    setIcons(sName, sName);
+                end
+            </script>
+        </buttoncontrol>
+    </template>
+    <template name="safetyNumber">
+        <simplenumberc>
+            <anchored to="contentanchor" height="20" width="20">
+                <top relation="current" offset="70" />
+                <left anchor="center" />
+            </anchored>
+            <frame name="fielddark" offset="5,5,5,5" />
+            <readonly />
+            <script>
+                function onInit()
+                    local num = SafetyToolkit.checkUnack(getName());
+                    setValue(num);
+                end
+            </script>
+            <gmvisibleonly />
+        </simplenumberc>
+    </template>
+
+    <windowclass name="SafetyToolkitWindow">
+        <frame>utilitybox</frame>
+        <sizelimits>
+            <minimum width="195" height="160" />
+            <dynamic />
+        </sizelimits>
+        <sheetdata>
+            <windowtitlebar_utilitybox name="title" />
+            <windowmenubar_utilitybox name="menubar" />
+            <resize_utilitybox />
+            <anchor_content_utilitybox_top />
+            <anchor_content_utilitybox_bottom />
+            <safetyCard name="card_x">
+                <anchored>
+                    <left offset="-65" />
+                </anchored>
+            </safetyCard>
+            <safetyCard name="card_n">
+                <anchored>
+                    <left offset="-20" />
+                </anchored>
+            </safetyCard>
+            <safetyCard name="card_o">
+                <anchored>
+                    <left offset="25" />
+                </anchored>
+            </safetyCard>
+            <safetyNumber name="number_x">
+                <anchored>
+                    <left offset="-55" />
+                </anchored>
+            </safetyNumber>
+             <safetyNumber name="number_n">
+                <anchored>
+                    <left offset="-10" />
+                </anchored>
+            </safetyNumber>
+             <safetyNumber name="number_o">
+                <anchored>
+                    <left offset="35" />
+                </anchored>
+            </safetyNumber>
+      </sheetdata>
+    </windowclass>
+</root>
